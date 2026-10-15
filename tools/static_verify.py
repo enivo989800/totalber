@@ -101,7 +101,6 @@ if workflow_path.exists():
         "runs-on: ubuntu-24.04",
         "actions/checkout@v5",
         "actions/setup-java@v5",
-        "android-actions/setup-android@v3",
         "gradle/actions/setup-gradle@v4",
         ":app:testDebugUnitTest",
         ":app:assembleDebug",
