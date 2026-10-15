@@ -398,12 +398,12 @@ class MainActivity : Activity() {
         return row
     }
 
-    private fun homeSummaryPanel(title: String, primary: String, detail: String, background: Int, action: () -> Unit): View {
+    private fun homeSummaryPanel(title: String, primary: String, detail: String, backgroundColor: Int, action: () -> Unit): View {
         val panel = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(dp(11), dp(11), dp(11), dp(11))
             minimumHeight = dp(100)
-            background = rounded(background, 13, BORDER)
+            background = rounded(backgroundColor, 13, BORDER)
             isClickable = true
             isFocusable = true
             setOnClickListener { action() }
@@ -430,7 +430,7 @@ class MainActivity : Activity() {
                 card(body) {
                     addView(text("第 ${record.issue} 期", 15, NAVY, true))
                     addView(text(record.drawDate, 12, MUTED, false).margin(top = 3))
-                    addNumberRow(record.reds, record.blue)
+                    addView(buildNumberRow(record.reds, record.blue))
                 }
             }
             if (records.size > drawsVisibleCount) {
@@ -497,7 +497,7 @@ class MainActivity : Activity() {
                 addView(text("任务编号：$lastPredictionId", 11, MUTED, false).margin(top = 4))
                 lastCandidates.forEachIndexed { index, candidate ->
                     addView(text("第 ${index + 1} 组 · ${candidate.strategy}", 13, NAVY, true).margin(top = 12))
-                    addNumberRow(candidate.reds, candidate.blue)
+                    addView(buildNumberRow(candidate.reds, candidate.blue))
                     addView(text("${candidate.features.entries.joinToString(" · ") { "${it.key} ${it.value}" }}", 11, MUTED, false).margin(top = 4))
                     addView(text("分析评分 ${String.format(Locale.getDefault(), "%.1f", candidate.score)} / 100（非中奖概率）", 12, BLUE, true).margin(top = 4))
                     addDivider(body = this)
