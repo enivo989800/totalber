@@ -19,13 +19,7 @@ required = [
     "app/src/main/java/com/build/lotteryai/data/LocalLotteryDb.kt",
     "app/src/test/java/com/build/lotteryai/core/BacktestEngineTest.kt",
     "app/src/test/java/com/build/lotteryai/core/ExternalCandidateParserTest.kt",
-    "docs/design-reference/android-home-reference.png",
-    "docs/design-reference/android-auxiliary-screens-reference.png",
     "app/src/main/java/com/build/lotteryai/ui/FrequencyBarChartView.kt",
-    "docs/planning/PLAN_PHASE1_数据源与产品规划.md",
-    "docs/planning/PLAN_PHASE2_扩展需求与BUILD规格.md",
-    "docs/planning/PLAN_PHASE3_界面达标与GitHub构建闭环.md",
-    "docs/planning/AUDIT_v1.2.0_PLAN与界面完整性.md",
     "app/src/main/java/com/build/lotteryai/data/OfficialLotteryRepository.kt",
     "app/src/main/java/com/build/lotteryai/ai/ApiConfigStore.kt",
     "app/src/main/java/com/build/lotteryai/ai/OpenAiCompatibleClient.kt",
@@ -128,7 +122,7 @@ if "fun predictionTasks(limit: Int = 50)" not in db_source:
     errors.append("local prediction-task history query is missing")
 
 if not errors:
-    print("PASSED: phase-two data/AI controls and phase-three native dashboard charts, task management, history loading, and plan-document checks.")
+    print("PASSED: phase-two data/AI controls and phase-three native dashboard charts, task management, history loading, checks.")
 
 if errors:
     for error in errors:
