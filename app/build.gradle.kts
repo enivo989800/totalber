@@ -13,7 +13,6 @@ android {
         targetSdk = 35
         versionCode = 3
         versionName = "1.2.0"
-        testInstrumentationRunner = "android.test.InstrumentationTestRunner"
     }
 
     buildTypes {
@@ -30,11 +29,14 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = "17"
-    }
     testOptions {
         unitTests.isReturnDefaultValues = true
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
 }
 
